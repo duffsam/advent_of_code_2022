@@ -35,17 +35,12 @@ int main(void)
 {
 
     std::ifstream ReadInput;
-    try
+
+    ReadInput.open("./inputs/input.txt");
+    if (!ReadInput.good())
     {
-        ReadInput.open("./inputs/input.txt");
-        if (!ReadInput.good())
-        {
-            throw new std::ios_base::failure("Unable to find file");
-        }
-    }
-    catch (const std::ios_base::failure& e)
-    {
-        std::cout << e.what() << std::endl;
+        std::cout << "Unable to open text file" << std::endl;
+        return -1;
     }
 
     std::string buff;
